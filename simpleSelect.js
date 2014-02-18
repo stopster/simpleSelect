@@ -54,12 +54,13 @@
 
 	$.fn.simpleSelect = function(config){
 		var conf = $.extend({}, defaults, config);
-		var $optWrap = conf.optionsWrapTpl(this);
 
 		return this.each(function() {
 			var $this = $(this);
+			var $optWrap = conf.optionsWrapTpl($this);
+
 			$this.find("option").each(function(index, element){
-				$optWrap.append(conf.optionTpl($this, index));
+				$optWrap.append(conf.optionTpl($(this), index));
 			});
 			var $select = conf.wrapperTpl($this)
 					.append(conf.triggerTpl($this))
