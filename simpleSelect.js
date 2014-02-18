@@ -1,4 +1,7 @@
-;(function($){
+;
+(function($){
+	'use strict';
+
 	var defaults = {
 		triggerTpl: function($select){
 			return $("<div>")
@@ -52,13 +55,17 @@
 	$.fn.simpleSelect = function(config){
 		var conf = $.extend({}, defaults, config);
 		var $optWrap = conf.optionsWrapTpl(this);
-		this.find("option").each(function(index, element){
-			$optWrap.append(conf.optionTpl($(this), index));
+
+		return this.each(function() {
+			var $this = $(this);
+			$this.find("option").each(function(index, element){
+				$optWrap.append(conf.optionTpl($this, index));
+			});
+			var $select = conf.wrapperTpl($this)
+					.append(conf.triggerTpl($this))
+					.append($optWrap);
+			attachEvents($this, $select);
+			$this.hide().after($select);
 		});
-		var $select = conf.wrapperTpl(this)
-				.append(conf.triggerTpl(this))
-				.append($optWrap);
-		attachEvents(this, $select);
-		this.hide().after($select);
 	}
-})(Zepto);
+})(Zepto || jQuery);
