@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="simpleSelect.css">
+		<title>Simple select</title>
+	</head>
+	<body>
+		<select>
+			<option value="val 1">val 1</option>
+			<option value="val 2">val 2</option>
+			<option value="val 3">val 3</option>
+			<option value="val 4">val 4</option>
+		</select>
+		<script type="text/javascript" src="zepto.js"></script>
+		<script type="text/javascript" src="simpleSelect.js"></script>
+		<script type="text/javascript">
+			var customSelect = $("select").simpleSelect();
+			console.log(customSelect);
+		</script>
+	</body>
+</html>

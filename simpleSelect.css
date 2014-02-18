@@ -1,0 +1,46 @@
+.simple-select{
+	border: 1px solid grey;
+	width: 12em;
+}
+
+.simple-select .trigger{
+	padding: 0.25em 0.5em;
+	margin: 0 0.5em;
+}
+.simple-select.opened .trigger{
+	border-bottom: 1px solid grey;
+}
+.simple-select .trigger .selected{
+	margin-left: 0.5em;
+}
+.simple-select .trigger .arrow{
+	position: relative;
+	float: right;
+	top: 6px;
+	right: 6px;
+	border-top: 8px solid grey;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+}
+.simple-select.opened .trigger .arrow{
+	border-top: none;
+	border-bottom: 8px solid grey;
+}
+.simple-select .options-wrap{
+	display: none;
+	width: 100%;
+	margin-top: 0.25em;
+	max-height: 5em;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.simple-select.opened .options-wrap{
+	display: block;
+}
+.simple-select .option {
+	padding: 0.25em 0.5em;
+}
+.simple-select .option:hover{
+	color: white;
+	background: lightgrey;
+}
